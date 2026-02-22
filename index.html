@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JavaScript Lab Exercises 1–6</title>
+
+<style>
+
+/* ===== PROFESSIONAL LAB CSS ===== */
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#f4f6f9;
+    margin:0;
+}
+
+/* Header */
+header{
+    background-color:#2c3e50;
+    color:white;
+    text-align:center;
+    padding:18px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+/* Main container */
+.container{
+    width:70%;
+    margin:30px auto;
+}
+
+/* Exercise card */
+.exercise{
+    background-color:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:6px;
+    border:1px solid #ddd;
+}
+
+/* Heading */
+.exercise h2{
+    margin-top:0;
+    color:#2c3e50;
+    font-size:18px;
+}
+
+/* Input */
+input{
+    padding:8px;
+    width:60%;
+    border:1px solid #ccc;
+    border-radius:4px;
+    font-size:14px;
+}
+
+/* Button */
+button{
+    padding:8px 14px;
+    background-color:#2c3e50;
+    color:white;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+button:hover{
+    background-color:#1a252f;
+}
+
+/* Output */
+.output{
+    margin-top:10px;
+    font-weight:bold;
+    color:#333;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+JavaScript Lab Exercises 1–6
+</header>
+
+<div class="container">
+
+<!-- Exercise 1 -->
+<div class="exercise">
+<h2>Exercise 1: Reverse a Number</h2>
+
+<input type="text" id="numReverse" placeholder="Enter number">
+<button onclick="reverseNumber()">Reverse</button>
+
+<div class="output" id="reverseOutput"></div>
+</div>
+
+
+<!-- Exercise 2 -->
+<div class="exercise">
+<h2>Exercise 2: Alphabetical Order</h2>
+
+<input type="text" id="stringInput" placeholder="Enter string">
+<button onclick="alphabetOrder()">Sort</button>
+
+<div class="output" id="alphabetOutput"></div>
+</div>
+
+
+<!-- Exercise 3 -->
+<div class="exercise">
+<h2>Exercise 3: Count Vowels</h2>
+
+<input type="text" id="vowelInput" placeholder="Enter string">
+<button onclick="countVowels()">Count</button>
+
+<div class="output" id="vowelOutput"></div>
+</div>
+
+
+<!-- Exercise 5 -->
+<div class="exercise">
+<h2>Exercise 5: First Letter Uppercase</h2>
+
+<input type="text" id="upperInput" placeholder="Enter sentence">
+<button onclick="uppercaseWords()">Convert</button>
+
+<div class="output" id="upperOutput"></div>
+</div>
+
+
+<!-- Exercise 6 -->
+<div class="exercise">
+<h2>Exercise 6: Current Date</h2>
+
+<button onclick="showDate()">Show Date</button>
+
+<div class="output" id="dateOutput"></div>
+</div>
+
+</div>
+
+
+<script>
+
+/* Exercise 1 */
+function reverseNumber(){
+
+var r = document.getElementById("numReverse").value;
+
+var t = r.split('').reverse().join('');
+
+document.getElementById("reverseOutput").innerHTML =
+"Reversed Number: " + t;
+
+}
+
+
+/* Exercise 2 */
+function alphabetOrder(){
+
+var str = document.getElementById("stringInput").value;
+
+var result = str.split('').sort().join('');
+
+document.getElementById("alphabetOutput").innerHTML =
+"Sorted String: " + result;
+
+}
+
+
+/* Exercise 3 */
+function countVowels(){
+
+var str = document.getElementById("vowelInput").value;
+
+var vowel_list = 'aeiouAEIOU';
+
+var vcount = 0;
+
+for(var x=0; x<str.length; x++)
+{
+if(vowel_list.indexOf(str[x]) !== -1)
+{
+vcount++;
+}
+}
+
+document.getElementById("vowelOutput").innerHTML =
+"Total Vowels: " + vcount;
+
+}
+
+
+/* Exercise 5 */
+function uppercaseWords(){
+
+var str = document.getElementById("upperInput").value;
+
+var array1 = str.split(" ");
+
+var newarray1 = [];
+
+for(var x=0; x<array1.length; x++)
+{
+newarray1.push(
+array1[x].charAt(0).toUpperCase() +
+array1[x].slice(1)
+);
+}
+
+var result = newarray1.join(" ");
+
+document.getElementById("upperOutput").innerHTML =
+"Result: " + result;
+
+}
+
+
+/* Exercise 6 */
+function showDate(){
+
+var today = new Date();
+
+var dd = today.getDate();
+
+var mm = today.getMonth()+1;
+
+var yyyy = today.getFullYear();
+
+if(dd<10)
+dd = '0'+dd;
+
+if(mm<10)
+mm = '0'+mm;
+
+var format1 = mm+'-'+dd+'-'+yyyy;
+var format2 = mm+'/'+dd+'/'+yyyy;
+var format3 = dd+'-'+mm+'-'+yyyy;
+var format4 = dd+'/'+mm+'/'+yyyy;
+
+document.getElementById("dateOutput").innerHTML =
+format1 + "<br>" +
+format2 + "<br>" +
+format3 + "<br>" +
+format4;
+
+}
+
+</script>
+
+</body>
+</html>
